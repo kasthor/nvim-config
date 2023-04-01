@@ -1,7 +1,6 @@
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 require('nvim-tree').setup({
-  auto_close = true,
   disable_netrw = true,
   -- hijack netrw window on startup
   hijack_netrw = true,
@@ -51,12 +50,12 @@ require('nvim-tree').setup({
     args = {},
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = { '.git', 'node_modules', '.cache', '.next', '*.out' }
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
   },
   actions = { open_file = { resize_window = true } },
   view = {
