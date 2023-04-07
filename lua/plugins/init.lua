@@ -23,6 +23,7 @@ packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
 
   -- [[ comments ]] --
+  use 'numToStr/Comment.nvim'
 
   -- [[ auto completion ]] --
 
