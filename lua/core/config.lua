@@ -7,3 +7,4 @@ vim.opt.mouse = ''
 vim.opt.colorcolumn = '80'
 vim.opt.signcolumn = 'yes'
 vim.opt.swapfile = false
+vim.opt.relativenumber = true
