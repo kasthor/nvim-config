@@ -1,7 +1,8 @@
 local ensure_packer = require('utils.ensure_packer')
 
 local packer = require('packer')
-local packer_bootstrap = ensure_packer()
+
+ensure_packer()
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
