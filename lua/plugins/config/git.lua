@@ -17,6 +17,8 @@ local on_attach = function(bufnr)
   vim.keymap.set('n', '<leader>gs', gs.stage_hunk, { buffer = bufnr })
   vim.keymap.set('n', '<leader>gr', gs.reset_hunk, { buffer = bufnr })
   vim.keymap.set('n', '<leader>gd', gs.diffthis, { buffer = bufnr })
+
+  -- vim.figutive
   vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', { buffer = bufnr })
 end
 
