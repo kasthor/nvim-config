@@ -4,7 +4,7 @@ ensure_package_manager()
 
 local plugins = {
   -- [[ theming ]] --
-  'marko-cerovac/material.nvim',
+  { 'marko-cerovac/material.nvim', lazy = false, priority = 1000 },
   'kyazdani42/nvim-web-devicons',
 
   'nvim-lualine/lualine.nvim',
@@ -17,10 +17,24 @@ local plugins = {
   'tpope/vim-surround',
 
   -- [[ lsp ]] --
-  'nvim-treesitter/nvim-treesitter',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'neovim/nvim-lspconfig',
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'williamboman/mason.nvim', config = true },
+      'williamboman/mason-lspconfig.nvim',
+
+      { 'j-hui/fidget.nvim',       opts = {} },
+      'folke/neodev.nvim',
+    }
+  },
+  -- [[ code highlighting ]] --
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ":TSUpdate",
+  },
 
   -- [[ comments ]] --
   'numToStr/Comment.nvim',
