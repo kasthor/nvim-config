@@ -1,13 +1,43 @@
-local tree_cb = require('nvim-tree.config').nvim_tree_callback
+-- local tree_cb = require('nvim-tree.config').nvim_tree_callback
+--
+-- This function has been generated from your
+--   view.mappings.list
+--   view.mappings.custom_only
+--   remove_keymaps
+--
+-- You should add this function to your configuration and set on_attach = on_attach in the nvim-tree setup call.
+--
+-- Although care was taken to ensure correctness and completeness, your review is required.
+--
+-- Please check for the following issues in auto generated content:
+--   "Mappings removed" is as you expect
+--   "Mappings migrated" are correct
+--
+-- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
+--
+
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- Default mappings.
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- Custom Mappings
+  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+  vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+
+  -- vim.keymap.set('n', 'Z', api.node.run.system, opts('Run System'))
+end
 
 require('nvim-tree').setup({
+  on_attach = on_attach,
   disable_netrw = true,
   -- hijack netrw window on startup
   hijack_netrw = true,
-  -- open the tree when running this setup function
-  open_on_setup = false,
-  -- will not open on setup if the filetype is in this list
-  ignore_ft_on_setup = {},
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab = false,
   -- hijacks new directory buffers when they are opened.
@@ -72,26 +102,6 @@ require('nvim-tree').setup({
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
-    mappings = {
-      -- custom only false will merge the list with the default mappings
-      -- if true, it will only use your list to set the mappings
-      custom_only = false,
-      -- list of mappings to set on the tree manually
-      list = {
-        {
-          key = { '<CR>', 'o', '<2-LeftMouse>', 'l' },
-          cb = tree_cb('edit'),
-        },
-        {
-          key = { 'a', '%' },
-          cb = tree_cb('create'),
-        },
-        {
-          key = 'h',
-          cb = tree_cb('close_node'),
-        },
-      },
-    },
   },
 })
 
