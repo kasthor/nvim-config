@@ -17,6 +17,9 @@ packer.startup(function(use)
   -- [[ file manager ]] --
   use 'kyazdani42/nvim-tree.lua'
 
+  -- [[ surround ]] --
+  use 'tpope/vim-surround'
+
   -- [[ lsp ]] --
   use 'nvim-treesitter/nvim-treesitter'
   use 'williamboman/mason.nvim'
