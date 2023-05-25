@@ -22,16 +22,19 @@ return {
           local event = "BufWritePre" -- or "BufWritePost"
           local async = event == "BufWritePost"
           local bufnr = vim.api.nvim_get_current_buf()
+          local format = function()
+            vim.lsp.buf.format({ bufnr = bufnr, async = async })
+          end
 
           vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
           vim.api.nvim_create_autocmd(event, {
             buffer = bufnr,
             group = group,
-            callback = function()
-              vim.lsp.buf.format({ bufnr = bufnr, async = async })
-            end,
+            callback = format,
             desc = "[lsp] format on save",
           })
+
+          vim.keymap.set('n', '<Leader>f', format, {})
         end
         local on_attach = function(_, _)
           local telescope = require('telescope.builtin')
@@ -71,6 +74,5 @@ return {
     { 'folke/neodev.nvim', config = true }
   },
   config = function()
-    vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, {})
   end
 }
