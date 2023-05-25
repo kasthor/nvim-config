@@ -14,16 +14,16 @@ return
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<M-space>'
+          init_selection = '<C-Space>',
+          node_incremental = '<C-Space>',
+          scope_incremental = '<C-Space>',
+          node_decremental = 'grm'
         }
       },
       textobjects = {
         select = {
           enable = true,
-          lookahead = true,   -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
             ['aa'] = '@parameter.outer',
@@ -36,7 +36,7 @@ return
         },
         move = {
           enable = true,
-          set_jumps = true,   -- whether to set jumps in the jumplist
+          set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             [']m'] = '@function.outer',
             [']]'] = '@class.outer',
