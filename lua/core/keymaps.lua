@@ -13,6 +13,6 @@ vim.keymap.set('n', '<Right>', resize_window('>'), { expr = 1 })
 
 vim.keymap.set('n', '<Leader>h', ':nohlsearch<CR>')
 vim.keymap.set('n', '<Leader>l', ':invrelativenumber<CR>')
--- vim.keymap.set('n', '<S-j>', '<cmd>m +1<CR>')
--- vim.keymap.set('n', '<S-k>', '<cmd>m -2<CR>')
+-- vim.keymap.set('n', '<M-j>', '<cmd>m +1<CR>')
+-- vim.keymap.set('n', '<M-k>', '<cmd>m -2<CR>')
 --
