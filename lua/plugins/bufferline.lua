@@ -2,7 +2,6 @@ return {
   'akinsho/bufferline.nvim',
   config = function()
     local bufferline = require('bufferline')
-    local ui = require('bufferline.ui')
     local state = require("bufferline.state")
     local commands = require("bufferline.commands")
 
@@ -20,12 +19,6 @@ return {
 
     local function buffers_sort_by_modified()
       bufferline.sort_buffers_by(sort_by_modified)
-    end
-
-    local function close_buffer(buf)
-      vim.schedule(function()
-        vim.cmd('bdelete' .. buf.id)
-      end)
     end
 
     local function buffers_close_by(func)
