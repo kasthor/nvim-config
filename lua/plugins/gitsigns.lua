@@ -22,13 +22,12 @@ return {
       vim.keymap.set('n', '<leader>gd', gs.diffthis, { buffer = bufnr })
 
       -- vim.figutive
+      vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', { buffer = bufnr })
     end
 
     require('gitsigns').setup({
       on_attach = on_attach,
       current_line_blame = true
     })
-
-    vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', { buffer = bufnr })
   end
 }
