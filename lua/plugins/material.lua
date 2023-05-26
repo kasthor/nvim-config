@@ -9,7 +9,6 @@ return {
 
     local m = colors.main
     local e = colors.editor
-    local b = colors.backgrounds
 
 
     require('material').setup({
@@ -25,6 +24,7 @@ return {
         NeoTreeTabActive = { fg = m.yellow, bg = e.active },
         NeoTreeTabSeparatorInactive = { fg = e.disabled, bg = e.bg },
         NeoTreeTabSeparatorActive = { fg = e.border, bg = e.active },
+        Green = { fg = m.green }
       }
     })
 
