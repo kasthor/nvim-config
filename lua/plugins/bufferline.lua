@@ -54,7 +54,7 @@ return {
         tab_size = 25,
         diagnostics = "nvim_lsp",
         offsets = {
-          { text = "Files",    filetype = 'NvimTree',   text_align = 'left' },
+          { text = "Explorer", filetype = 'neo-tree',   text_align = 'center', highlight = "Directory" },
           { text = "Terminal", filetype = 'toggleterm', text_align = 'left' } },
         show_buffer_close_icons = false,
         show_close_icon = false,
