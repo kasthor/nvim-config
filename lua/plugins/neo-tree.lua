@@ -13,6 +13,9 @@ return {
       source_selector = {
         winbar = true
       },
+      filesystem = {
+        follow_current_file = true
+      },
       window = {
         mappings = {
           ["l"] = "open",
