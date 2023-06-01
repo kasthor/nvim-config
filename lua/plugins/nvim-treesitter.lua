@@ -32,6 +32,7 @@ return
             ['if'] = '@function.inner',
             ['ac'] = '@class.outer',
             ['ic'] = '@class.inner',
+            ['as'] = { query = '@scope', query_group = "locals", desc = "Language Scope" },
           },
         },
         move = {
