@@ -14,12 +14,13 @@ return {
         winbar = true
       },
       filesystem = {
-        follow_current_file = true
+        follow_current_file = true,
       },
       window = {
         mappings = {
           ["l"] = "open",
           ["h"] = "close_node",
+          ["?"] = "fuzzy_finder",
           ["<tab>"] = "next_source",
           ["<s-tab>"] = "prev_source"
         }
