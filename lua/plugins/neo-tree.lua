@@ -4,7 +4,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     -- "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim"
+    "MunifTanjim/nui.nvim",
+    "s1n7ax/nvim-window-picker"
   },
   config = function()
     vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])

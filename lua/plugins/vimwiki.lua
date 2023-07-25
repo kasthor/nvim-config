@@ -1,6 +1,6 @@
 return {
   'vimwiki/vimwiki',
-  config = function()
+  init = function()
     vim.g.vimwiki_global_ext = 0
     vim.g.vimwiki_folding = ''
     vim.g.vimwiki_key_mappings = {
@@ -15,14 +15,12 @@ return {
       html = 0,
       mouse = 0,
     }
-    vim.g.vimwiki_list = {
-      {
-        auto_export = 0,
-        path = '~/.dotfiles/vimwiki/',
-        syntax = 'markdown',
-        ext = '.md',
-      },
-    }
+    vim.g.vimwiki_list = { {
+      auto_export = 0,
+      path = '~/.dotfiles/vimwiki/',
+      syntax = 'markdown',
+      ext = '.md',
+    } }
 
     vim.cmd([[
       autocmd FileType vimwiki setlocal nobuflisted
