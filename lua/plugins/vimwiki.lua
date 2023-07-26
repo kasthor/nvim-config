@@ -17,7 +17,7 @@ return {
     }
     vim.g.vimwiki_list = { {
       auto_export = 0,
-      path = '~/.dotfiles/vimwiki/',
+      path = '~/.config/vimwiki/',
       syntax = 'markdown',
       ext = '.md',
     } }
