@@ -1,6 +1,6 @@
 return {
   -- [[ theming ]] --
-  'kyazdani42/nvim-web-devicons',
+  'nvim-tree/nvim-web-devicons',
 
   -- [[ surround ]] --
   'tpope/vim-surround',
@@ -13,4 +13,45 @@ return {
 
   -- [[ test runner ]] --
   { 'kasthor/nvim-test-runner', config = true },
+
+  -- [[ markdown notes ]] --
+  { 'kasthor/nvim-mdif',        config = true, dir = '~/Sources/nvim/nvim-mdif' },
+
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
+  },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   keys = {
+  --     { '<Leader>tr', [[<cmd>lua require('neotest').run.run()<cr>]],                   desc = "Run tests" },
+  --     { '<Leader>tR', [[<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>]], desc = "Run tests for full file" },
+  --     { '<Leader>tw', [[<cmd>lua require('neotest').watch.toggle()<cr>]],              desc = "Watch tests" },
+  --     { '<Leader>ts', [[<cmd>lua require('neotest').summary.toggle()<cr>]],            desc = "Watch tests" }
+  --   },
+  --   config = function()
+  --     require('neotest').setup({
+  --       adapters = {
+  --         require('neotest-jest')({
+  --           jestCommand = "npm test --",
+  --           env = { CI = true },
+  --           cwd = function(path)
+  --             print('cwd')
+  --             return vim.fn.getcwd()
+  --           end
+  --         })
+  --       }
+  --
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "antoinemadec/FixCursorHold.nvim",
+  --     'haydenmeade/neotest-jest',
+  --   }
+  -- }
 }

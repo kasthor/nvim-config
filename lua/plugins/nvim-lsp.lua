@@ -1,19 +1,21 @@
-function auto_format()
+function setup_auto_format()
   local group = vim.api.nvim_create_augroup("lsp_format_on_save", {})
   local event = "BufWritePre" -- or "BufWritePost"
   local async = event == "BufWritePost"
   local bufnr = vim.api.nvim_get_current_buf()
   local format = function()
-    vim.lsp.buf.format({ bufnr = bufnr, async = async })
+    vim.lsp.buf.format({ async = async })
   end
 
-  vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-  vim.api.nvim_create_autocmd(event, {
-    buffer = bufnr,
-    group = group,
-    callback = format,
-    desc = "[lsp] format on save",
-  })
+  -- vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+  --
+  -- Auto Format
+  -- vim.api.nvim_create_autocmd(event, {
+  --   buffer = bufnr,
+  --   group = group,
+  --   callback = format,
+  --   desc = "[lsp] format on save",
+  -- })
 
   vim.keymap.set('n', '<Leader>f', format, {})
 end
@@ -23,12 +25,7 @@ return {
   dependencies = {
     {
       'williamboman/mason.nvim',
-      opts = {
-        ensure_installed = { "lua_ls", 'clangd', 'cssls', 'dockerls', 'html',
-          'graphql', 'tsserver', 'marksman', 'pylsp',
-          'rust_analyzer', 'yamlls'
-        }
-      }
+      opts = {}
     },
     {
       'williamboman/mason-lspconfig.nvim',
@@ -52,13 +49,19 @@ return {
           vim.keymap.set('n', 'gr', telescope.lsp_references, {})
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 
-          auto_format()
+          setup_auto_format()
         end
         local servers_config = {
           lua_ls = {
             Lua = { diagnostics = { globals = { 'vim' } } }
           }
         }
+
+        -- ensure_installed = { "lua_ls", 'clangd', 'cssls', 'dockerls', 'html', 'graphql', 'tsserver', 'marksman', 'pylsp', 'rust_analyzer', 'yamlls' }
+        mason_lspconfig.setup({
+          ensure_installed = { 'lua_ls', 'cssls', 'html', 'graphql', 'tsserver', 'marksman', 'pylsp',
+            'rust_analyzer', 'clangd' }
+        })
         mason_lspconfig.setup_handlers({
           function(server_name)
             lspconfig[server_name].setup({
@@ -79,12 +82,13 @@ return {
         local null_ls = require("null-ls")
 
         local on_attach = function()
-          auto_format()
+          setup_auto_format()
         end
 
         null_ls.setup({
+          on_attach = on_attach,
           sources = {
-            null_ls.builtins.formatting.prettierd,
+            null_ls.builtins.formatting.prettier,
             null_ls.builtins.code_actions.eslint,
             null_ls.builtins.diagnostics.eslint
           }
