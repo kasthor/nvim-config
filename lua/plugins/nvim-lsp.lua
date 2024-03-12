@@ -1,4 +1,4 @@
-function setup_auto_format()
+local function setup_auto_format()
   local group = vim.api.nvim_create_augroup("lsp_format_on_save", {})
   local event = "BufWritePre" -- or "BufWritePost"
   local async = event == "BufWritePost"
@@ -18,6 +18,25 @@ function setup_auto_format()
   -- })
 
   vim.keymap.set('n', '<Leader>f', format, {})
+end
+
+local function setup_color_column()
+  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+  local prettierrc_path = vim.fn.findfile('.prettierrc', ';')
+  local print_width = 120
+
+  if prettierrc_path ~= '' then
+    local prettierrc_contents = vim.fn.readfile(prettierrc_path)
+
+    for _, line in ipairs(prettierrc_contents) do
+      local match = line:match('[\'"]?printWidth[\'"]%s*[=:]%s*(%d+)')
+      if match then
+        print_width = tonumber(match) or print_width
+      end
+    end
+
+  end
+  vim.api.nvim_win_set_option(0, 'colorcolumn', tostring(print_width))
 end
 
 return {
@@ -50,6 +69,7 @@ return {
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 
           setup_auto_format()
+          setup_color_column()
         end
         local servers_config = {
           lua_ls = {
