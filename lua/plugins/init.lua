@@ -17,6 +17,14 @@ return {
   -- [[ markdown notes ]] --
   { 'kasthor/nvim-mdif',        config = true, dir = '~/Sources/nvim/nvim-mdif' },
 
+  -- Shows errors on the top of the window
+  {
+    'dgagn/diagflow.nvim',
+    -- event = 'LspAttach', This is what I use personnally and it works great
+    opts = {
+      show_borders = true
+    }
+  },
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
