@@ -7,7 +7,7 @@ return
   build        = ":TSUpdate",
   config       = function()
     require('nvim-treesitter.configs').setup({
-      ensure_installed = { "c", "lua", "rust", "vim", "javascript", "python", "typescript", "tsx" },
+      ensure_installed = { "c", "lua", "rust", "vim", "javascript", "python", "typescript", "tsx", "dockerfile", "php" },
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
@@ -26,22 +26,22 @@ return
           lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
-              ['a='] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
-              ['i='] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
+            ['a='] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
+            ['i='] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
 
-              ['aa'] = { query = "@parameter.outer", desc = "Select outer part of a parameter" },
-              ['ia'] = { query = "@parameter.inner", desc = "Select inner part of a parameter" },
+            ['aa'] = { query = "@parameter.outer", desc = "Select outer part of a parameter" },
+            ['ia'] = { query = "@parameter.inner", desc = "Select inner part of a parameter" },
 
-              ['ai'] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
-              ['ii'] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
+            ['ai'] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
+            ['ii'] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
 
-              ['af'] = { query = "@function.outer", desc = "Select outer part of a function" },
-              ['if'] = { query = "@function.inner", desc = "Select inner part of a function" },
+            ['af'] = { query = "@function.outer", desc = "Select outer part of a function" },
+            ['if'] = { query = "@function.inner", desc = "Select inner part of a function" },
 
-              ['ac'] = { query = "@class.outer", desc = "Select outer part of a function" },
-              ['ic'] = { query = "@class.inner", desc = "Select inner part of a function" },
+            ['ac'] = { query = "@class.outer", desc = "Select outer part of a function" },
+            ['ic'] = { query = "@class.inner", desc = "Select inner part of a function" },
 
-              ['as'] = { query = '@scope', query_group = "locals", desc = "Language Scope" },
+            ['as'] = { query = '@scope', query_group = "locals", desc = "Language Scope" },
           },
         },
         move = {
