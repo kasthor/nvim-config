@@ -17,7 +17,7 @@ local function setup_auto_format()
   --   desc = "[lsp] format on save",
   -- })
 
-  vim.keymap.set('n', '<Leader>f', format, {})
+  -- vim.keymap.set('n', '<Leader>f', format, {})
 end
 
 local function setup_color_column()
@@ -96,25 +96,6 @@ return {
 
     { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
     { 'folke/neodev.nvim', config = true },
-    {
-      'jose-elias-alvarez/null-ls.nvim',
-      config = function()
-        local null_ls = require("null-ls")
-
-        local on_attach = function()
-          setup_auto_format()
-        end
-
-        null_ls.setup({
-          on_attach = on_attach,
-          sources = {
-            null_ls.builtins.formatting.prettier,
-            null_ls.builtins.code_actions.eslint,
-            null_ls.builtins.diagnostics.eslint
-          }
-        })
-      end
-    }
   },
   config = function()
   end
