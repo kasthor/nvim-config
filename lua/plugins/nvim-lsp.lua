@@ -79,7 +79,7 @@ return {
 
         -- ensure_installed = { "lua_ls", 'clangd', 'cssls', 'dockerls', 'html', 'graphql', 'tsserver', 'marksman', 'pylsp', 'rust_analyzer', 'yamlls' }
         mason_lspconfig.setup({
-          ensure_installed = { 'lua_ls', 'cssls', 'html', 'graphql', 'tsserver', 'marksman', 'pylsp',
+          ensure_installed = { 'lua_ls', 'cssls', 'html', 'graphql', 'ts_ls', 'marksman', 'pylsp',
             'rust_analyzer', 'clangd' }
         })
         mason_lspconfig.setup_handlers({
