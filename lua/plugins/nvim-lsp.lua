@@ -94,7 +94,7 @@ return {
       end
     },
 
-    { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
+    { 'j-hui/fidget.nvim', tag = "v1.4.5", opts = { notification = { window = { align = "top", relative = "editor", winblend = 0 } } } },
     { 'folke/neodev.nvim', config = true },
   },
   config = function()
