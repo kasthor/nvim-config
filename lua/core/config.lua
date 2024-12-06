@@ -12,3 +12,10 @@ vim.opt.wrap = false
 
 vim.api.nvim_set_hl(0, 'TabRed', { bg = 'red' })
 vim.fn.matchadd('TabRed', '\\t')
+
+vim.filetype.add({
+  pattern = {
+    [".*/[Hh]elm.*/templates/.*%.ya?ml"] = "helm",
+    ["Chart%.yaml"] = "helm"
+  }
+})
