@@ -6,16 +6,17 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescript = { "prettier" },
-        typescriptreact = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
+        javascript = { "deno_fmt" },
+        javascriptreact = { "deno_fmt" },
+        typescript = { "deno_fmt" },
+        typescriptreact = { "deno_fmt" },
+        css = { "deno_fmt" },
+        html = { "deno_fmt" },
+        json = { "deno_fmt" },
+        yaml = { "deno_fmt" },
+        markdown = { "deno_fmt" },
         lua = { "stylua" },
+        sql = { "sql_formatter" }
       }
     })
     function format()
