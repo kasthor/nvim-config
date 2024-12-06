@@ -19,3 +19,7 @@ vim.filetype.add({
     ["Chart%.yaml"] = "helm"
   }
 })
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
