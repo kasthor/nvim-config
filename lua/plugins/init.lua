@@ -15,7 +15,7 @@ return {
   { 'kasthor/nvim-test-runner', config = true },
 
   -- [[ markdown notes ]] --
-  { 'kasthor/nvim-mdif',        config = true, dir = '~/Sources/nvim/nvim-mdif' },
+  { 'kasthor/nvim-mdif',        config = true },
 
   {
     'goolord/alpha-nvim',

@@ -34,7 +34,6 @@ local function setup_color_column()
         print_width = tonumber(match) or print_width
       end
     end
-
   end
   vim.api.nvim_win_set_option(0, 'colorcolumn', tostring(print_width))
 end
