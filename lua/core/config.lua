@@ -9,3 +9,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.swapfile = false
 vim.opt.relativenumber = true
 vim.opt.wrap = false
+
+vim.api.nvim_set_hl(0, 'TabRed', { bg = 'red' })
+vim.fn.matchadd('TabRed', '\\t')
